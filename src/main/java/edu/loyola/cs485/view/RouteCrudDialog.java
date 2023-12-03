@@ -9,7 +9,7 @@ import java.util.List;
 
 public class RouteCrudDialog extends JDialog {
     private JPanel contentPane;
-    private JButton buttonOK;
+    private JButton buttonEdit;
     private JButton buttonCancel;
     private JList lstRouteUI;
     private JButton deleteButton;
@@ -21,9 +21,9 @@ public class RouteCrudDialog extends JDialog {
         getRootPane().setDefaultButton(buttonCancel);
         populateList();
 
-        buttonOK.addActionListener(new ActionListener() {
+        buttonEdit.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                onOK();
+                onEditClick();
             }
         });
 
@@ -61,9 +61,14 @@ public class RouteCrudDialog extends JDialog {
         });
     }
 
-    private void onOK() {
+    private void onEditClick() {
         // add your code here
-        dispose();
+        Route selRoute = (Route) lstRouteUI.getSelectedValue();
+        RouteUpdateDialog dlg = new RouteUpdateDialog(selRoute);
+        dlg.pack();
+        dlg.setVisible(true);
+
+        populateList();
     }
 
     private void onCancel() {
