@@ -43,4 +43,15 @@ public class Route extends AbstractEntity{
     public void setDistance_Traveled(Integer distance_Traveled) {
         Distance_Traveled = distance_Traveled;
     }
+
+    @Override
+    public String toString() {
+        return "Route{" +
+                "Id=" + Id +
+                ", Time_Traveled=" + Time_Traveled +
+                ", Starting_Station='" + Starting_Station + '\'' +
+                ", Ending_Station='" + Ending_Station + '\'' +
+                ", Distance_Traveled=" + Distance_Traveled +
+                '}';
+    }
 }

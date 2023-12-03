@@ -7,7 +7,7 @@ import java.sql.Time;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-public class ClientDAOTest {
+public class RouteDAOTest {
     @Test
     public void testFake(){
         assertAll(
@@ -75,7 +75,7 @@ public class ClientDAOTest {
     public void testList() throws SQLException{
         RouteDAO dao = new RouteDAO();
         dao.setTestDatabase();
-        for (int i = 0; i < 3; i++) {
+        for (int i=0; i<3; i++) {
             Route r = new Route();
             r.setTime_Traveled(Time.valueOf("00:00:00"));
             r.setStarting_Station("Number " + Integer.toString(i));
@@ -88,7 +88,7 @@ public class ClientDAOTest {
                 ()->assertEquals(3, lst.size())
         );
 
-        for (Route r: lst){
+        for (Route r : lst){
             dao.delete(r);
         }
     }
